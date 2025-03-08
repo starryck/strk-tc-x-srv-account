@@ -1,4 +1,4 @@
-FROM golang:1.22.5-alpine3.20 as builder
+FROM golang:1.24.1-alpine3.21 as builder
 LABEL maintainer=gordon.lai@starryck.com
 
 RUN apk update && \
@@ -9,7 +9,7 @@ COPY . /source
 WORKDIR /source
 RUN go build -o ./main.exe -tags=musl,sonic,avx .
 
-FROM alpine:3.20
+FROM alpine:3.21
 
 ARG git_tag
 ARG git_commit

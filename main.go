@@ -5,10 +5,10 @@ import (
 
 	"github.com/urfave/cli/v2"
 
-	"github.com/forbot161602/x-srv-account/source/entry/xvinfo"
-	_ "github.com/forbot161602/x-srv-account/source/entry/xvpreset"
-	"github.com/forbot161602/x-srv-account/source/entry/xvscript"
-	"github.com/forbot161602/x-srv-account/source/entry/xvserver"
+	"github.com/starryck/strk-tc-x-srv-account/source/entry/xvinfo"
+	_ "github.com/starryck/strk-tc-x-srv-account/source/entry/xvpreset"
+	"github.com/starryck/strk-tc-x-srv-account/source/entry/xvscript"
+	"github.com/starryck/strk-tc-x-srv-account/source/entry/xvserver"
 )
 
 var (
@@ -17,16 +17,19 @@ var (
 
 func init() {
 	app = &cli.App{
-		Name:      "srv-account",
-		Usage:     "Service: Account",
+		Name:      "x-srv-account",
+		Usage:     "X Service: Account",
 		Version:   "v1",
 		HelpName:  "./main.exe",
 		ArgsUsage: "[arguments...]",
 		Authors: []*cli.Author{
-			&cli.Author{Name: "gordon.lai@starryck.com"},
+			&cli.Author{
+				Name:  "Gordon Lai",
+				Email: "gordon.lai@starryck.com",
+			},
 		},
-		Action: func(c *cli.Context) error {
-			cli.ShowAppHelp(c)
+		Action: func(ctx *cli.Context) error {
+			cli.ShowAppHelp(ctx)
 			return nil
 		},
 		Commands: []*cli.Command{
@@ -35,7 +38,7 @@ func init() {
 				Usage:     "Present service information",
 				HelpName:  "show-info",
 				ArgsUsage: "[arguments...]",
-				Action: func(c *cli.Context) error {
+				Action: func(ctx *cli.Context) error {
 					return xvinfo.Execute()
 				},
 			},
@@ -44,7 +47,7 @@ func init() {
 				Usage:     "Perform a script",
 				HelpName:  "run-script",
 				ArgsUsage: "[arguments...]",
-				Action: func(c *cli.Context) error {
+				Action: func(ctx *cli.Context) error {
 					return xvscript.Execute()
 				},
 			},
@@ -53,7 +56,7 @@ func init() {
 				Usage:     "Launch a server",
 				HelpName:  "run-server",
 				ArgsUsage: "[arguments...]",
-				Action: func(c *cli.Context) error {
+				Action: func(ctx *cli.Context) error {
 					return xvserver.Execute()
 				},
 			},
