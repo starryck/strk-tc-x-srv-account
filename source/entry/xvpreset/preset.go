@@ -5,9 +5,9 @@ import (
 
 	"github.com/joho/godotenv"
 
-	"github.com/forbot161602/x-lib-go/source/core/base/xbcfg"
+	"github.com/starryck/strk-tc-x-lib-go/source/core/base/xbcfg"
 
-	"github.com/forbot161602/x-srv-account/source/core/base/xvcfg"
+	"github.com/starryck/strk-tc-x-srv-account/source/core/base/xvcfg"
 )
 
 func init() {
